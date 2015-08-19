@@ -4,8 +4,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 import org.ecad.captacao.dao.AppUserDAO;
 import org.ecad.captacao.exception.EntityExistsException;
@@ -20,13 +20,13 @@ import org.ecad.captacao.persistence.AppUserGroup;
 @Stateless
 public class AppUserService extends AbstractService {
 
-	@EJB
+	@Inject
 	private AppUserDAO userDAO;
 	
-	@EJB
+	@Inject
 	private AppUserGroupService groupService;
 
-	@EJB
+	@Inject
 	private AppTokenService tokenService;
 
 	public AppUser add(AppUser user) throws GenericException {

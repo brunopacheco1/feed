@@ -3,8 +3,8 @@ package org.ecad.captacao.service;
 import java.util.Date;
 import java.util.UUID;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 import org.ecad.captacao.dao.AppTokenDAO;
 import org.ecad.captacao.exception.EntityNotFoundException;
@@ -19,13 +19,13 @@ import org.joda.time.DateTime;
 @Stateless
 public class AppTokenService extends AbstractService {
 
-	@EJB
+	@Inject
 	private AppTokenDAO tokenDAO;
 	
-	@EJB
+	@Inject
 	private AppUserService userService;
 	
-	@EJB
+	@Inject
 	private FeedManagerRobotService robotService;
 
 	public AppToken generateToken(AppUser user) throws GenericException {

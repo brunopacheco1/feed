@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -30,7 +30,7 @@ import org.jboss.resteasy.annotations.GZIP;
 @Stateless
 public class FeedManagerRobotResource extends AbstractResource {
 
-	@EJB
+	@Inject
 	private FeedManagerRobotService robotService;
 
 	@POST

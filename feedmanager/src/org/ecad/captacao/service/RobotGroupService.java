@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 import org.ecad.captacao.dao.RobotGroupDAO;
 import org.ecad.captacao.exception.EntityExistsException;
@@ -22,13 +22,13 @@ import org.quartz.SchedulerException;
 @Stateless
 public class RobotGroupService extends AbstractService {
 
-	@EJB
+	@Inject
 	private RobotGroupDAO groupDAO;
 	
-	@EJB
+	@Inject
 	private FeedManagerRobotService robotService;
 	
-	@EJB
+	@Inject
 	private SchedulerService schedulerService;
 	
 	public RobotGroup add(RobotGroup group) throws GenericException, SchedulerException {

@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -23,7 +23,7 @@ import org.jboss.resteasy.annotations.GZIP;
 @Stateless
 public class MonitoringResource extends AbstractResource {
 
-	@EJB
+	@Inject
 	private MonitoringService monitoringService;
 	
 	@GET

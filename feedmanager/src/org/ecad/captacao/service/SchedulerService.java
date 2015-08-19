@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.inject.Inject;
 
 import org.ecad.captacao.exception.GenericException;
 import org.ecad.captacao.job.AppTokenChecker;
@@ -27,7 +27,7 @@ public class SchedulerService extends AbstractService {
 	
 	private Scheduler scheduler;
 	
-	@EJB
+	@Inject
 	private RobotGroupService groupService;
 	
 	@PostConstruct

@@ -2,8 +2,8 @@ package org.ecad.captacao.service;
 
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 import org.ecad.captacao.dao.AppUserGroupDAO;
 import org.ecad.captacao.exception.EntityExistsException;
@@ -15,7 +15,7 @@ import org.ecad.captacao.persistence.AppUserGroup;
 @Stateless
 public class AppUserGroupService extends AbstractService {
 
-	@EJB
+	@Inject
 	private AppUserGroupDAO groupDAO;
 	
 	

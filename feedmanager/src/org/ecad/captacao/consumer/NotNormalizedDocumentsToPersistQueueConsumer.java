@@ -2,7 +2,7 @@ package org.ecad.captacao.consumer;
 
 import java.util.Date;
 
-import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -17,10 +17,10 @@ import org.ecad.captacao.service.NotNormalizedDocumentsToPersistQueueService;
 
 public class NotNormalizedDocumentsToPersistQueueConsumer extends AbstractConsumer implements MessageListener {
 	
-	@EJB
+	@Inject
 	private DocumentService documentService;
 	
-	@EJB
+	@Inject
 	private NotNormalizedDocumentsToPersistQueueService service;
 	
 	@Override

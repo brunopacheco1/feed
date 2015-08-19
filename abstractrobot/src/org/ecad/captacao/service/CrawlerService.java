@@ -5,8 +5,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -17,12 +17,14 @@ import javax.jms.Session;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.ecad.captacao.model.Document;
 import org.ecad.captacao.model.Seed;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
 
 import com.google.gson.Gson;
 
@@ -41,7 +43,7 @@ public class CrawlerService extends AbstractService {
     private MessageProducer crawlerQueueProducer;
     private Destination crawlerQueueDestination;
     
-    @EJB
+    @Inject
     private CrawlerExecutionControllerService executionService;
     
     @PostConstruct
@@ -122,22 +124,12 @@ public class CrawlerService extends AbstractService {
 		}
 		
 		Long time = System.currentTimeMillis();
-		
 		Integer status = 200;
-		
 		Gson gson = new Gson();
+		Client client = ClientBuilder.newClient();
 		
-		ClientRequest clientRequest = new ClientRequest(managerUrl);
-		clientRequest.accept("application/json");
-		
-		clientRequest.header(HttpHeaders.AUTHORIZATION, key);
-		clientRequest.header("Robot", "yes");
-		
-		clientRequest.body("application/json", gson.toJson(documentsToNormalize));
-		
-		ClientResponse<String> response = null;
 		try {
-			response = clientRequest.post(String.class);
+			Response response = client.target(managerUrl).request().post(Entity.entity(gson.toJson(documentsToNormalize), MediaType.APPLICATION_JSON_TYPE));
 			status = response.getStatus();
 		} catch (Exception e) {
 			status = 500;
@@ -146,7 +138,7 @@ public class CrawlerService extends AbstractService {
 		
 		time = System.currentTimeMillis() - time;
 
-		if(response == null || status != 200) {
+		if(status != 200) {
 			logger.info(String.format("Persisting documents status[%s] >> %sms", status, time));
 		}
 	}

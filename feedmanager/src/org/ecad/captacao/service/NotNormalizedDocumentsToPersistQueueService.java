@@ -5,8 +5,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -32,10 +32,10 @@ public class NotNormalizedDocumentsToPersistQueueService extends AbstractService
 	@Resource(name="documentToNormalizeQueue")
 	private String documentToNormalizeQueue;
 	
-	@EJB
+	@Inject
 	private NotNormalizedDocumentsToPersistQueueControllerService executionService;
 	
-	@EJB
+	@Inject
 	private FeedManagerRobotService robotService;
 	
 	private Connection connection;

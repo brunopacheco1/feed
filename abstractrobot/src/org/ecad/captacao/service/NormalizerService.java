@@ -5,9 +5,9 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
-import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.inject.Inject;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
@@ -18,11 +18,15 @@ import javax.jms.Session;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import javax.ws.rs.core.HttpHeaders;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.ecad.captacao.model.Document;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
+
+import com.google.gson.Gson;
 
 @Singleton
 @Startup
@@ -40,7 +44,7 @@ public class NormalizerService extends AbstractService {
     private MessageProducer normalizerQueueProducer;
     private Destination normalizerQueueDestination;
     
-    @EJB
+    @Inject
     private NormalizerExecutionControllerService executionService;
     
     @PostConstruct
@@ -124,21 +128,13 @@ public class NormalizerService extends AbstractService {
     		document.setFields(null);
     	}
     	
-		Long time = System.currentTimeMillis();
-		
+    	Long time = System.currentTimeMillis();
 		Integer status = 200;
+		Gson gson = new Gson();
+		Client client = ClientBuilder.newClient();
 		
-		ClientRequest clientRequest = new ClientRequest(managerUrl);
-		clientRequest.accept("application/json");
-		
-		clientRequest.header(HttpHeaders.AUTHORIZATION, key);
-		clientRequest.header("Robot", "yes");
-		
-		clientRequest.body("application/json", gson.toJson(normalizedDocuments));
-		
-		ClientResponse<String> response = null;
 		try {
-			response = clientRequest.put(String.class);
+			Response response = client.target(managerUrl).request().put(Entity.entity(gson.toJson(normalizedDocuments), MediaType.APPLICATION_JSON_TYPE));
 			status = response.getStatus();
 		} catch (Exception e) {
 			status = 500;

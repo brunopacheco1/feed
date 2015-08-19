@@ -1,7 +1,7 @@
 package org.ecad.captacao.service;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 import org.ecad.captacao.model.Document;
 import org.ecad.captacao.model.Documents;
@@ -11,10 +11,10 @@ import org.ecad.captacao.model.Seed;
 @Stateless
 public class RobotService {
 	
-	@EJB
+	@Inject
 	private NormalizerService normalizerService;
 	
-	@EJB
+	@Inject
 	private CrawlerService crawlerService;
 	
 	public ExecutionStatus runCrawler(Seed seed) {

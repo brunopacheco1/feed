@@ -1,7 +1,7 @@
 package org.ecad.captacao.resource;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -22,7 +22,7 @@ import org.ecad.captacao.service.RobotService;
 @Produces(MediaType.APPLICATION_JSON)
 public class RobotResource {
 
-	@EJB
+	@Inject
 	private RobotService robotService;
 	
 	@POST

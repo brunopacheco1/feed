@@ -4,9 +4,9 @@ import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.inject.Inject;
 
 import org.ecad.captacao.dao.AppTokenDAO;
 import org.ecad.captacao.exception.EntityExistsException;
@@ -21,13 +21,13 @@ import org.ecad.captacao.persistence.AppUserType;
 @Startup
 public class AppInitializerService extends AbstractService {
 
-	@EJB
+	@Inject
 	private AppUserService userService;
 	
-	@EJB
+	@Inject
 	private AppUserGroupService groupService;
 	
-	@EJB
+	@Inject
 	private AppTokenDAO tokenDAO;
 	
 	@Resource(name="app.context")

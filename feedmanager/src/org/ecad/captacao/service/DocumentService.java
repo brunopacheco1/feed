@@ -2,8 +2,8 @@ package org.ecad.captacao.service;
 
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
 
 import org.ecad.captacao.dao.DocumentDAO;
@@ -17,10 +17,10 @@ import org.ecad.captacao.persistence.Robot;
 @Stateless
 public class DocumentService extends AbstractService {
 
-	@EJB
+	@Inject
 	private DocumentDAO documentDAO;
 	
-	@EJB
+	@Inject
 	private FeedManagerRobotService robotService;
 	
 	public Boolean exists(Long id) throws GenericException {

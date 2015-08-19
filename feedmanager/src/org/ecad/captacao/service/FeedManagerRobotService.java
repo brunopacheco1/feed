@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 
 import org.ecad.captacao.dao.RobotDAO;
 import org.ecad.captacao.exception.EntityExistsException;
@@ -25,22 +25,22 @@ import org.jboss.resteasy.client.ClientResponse;
 @Stateless
 public class FeedManagerRobotService extends AbstractService {
 
-	@EJB
+	@Inject
 	private RobotDAO robotDAO;
 	
-	@EJB
+	@Inject
 	private RobotGroupService groupService;
 	
-	@EJB
+	@Inject
 	private NotNormalizedDocumentsToPersistQueueService documentsToNormalizeService;
 	
-	@EJB
+	@Inject
 	private NormalizedDocumentsToPersistQueueService normalizedDocumentsService;
 	
-	@EJB
+	@Inject
 	private DocumentService documentService;
 	
-	@EJB
+	@Inject
 	private AppTokenService tokenService;
 	
 	@Resource(name="app.address")

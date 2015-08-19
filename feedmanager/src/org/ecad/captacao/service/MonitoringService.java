@@ -2,8 +2,8 @@ package org.ecad.captacao.service;
 
 import java.util.List;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
 
 import org.ecad.captacao.dao.MonitoringDAO;
@@ -14,7 +14,7 @@ import org.ecad.captacao.persistence.Monitoring;
 @Stateless
 public class MonitoringService extends AbstractService {
 
-	@EJB
+	@Inject
 	private MonitoringDAO monitoringDAO;
 	
 	

@@ -1,6 +1,6 @@
 package org.ecad.captacao.robot;
 
-import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -18,7 +18,7 @@ public class Crawler implements MessageListener {
 	
 	protected Logger logger = Logger.getLogger(this.getClass());
 	
-	@EJB
+	@Inject
 	protected CrawlerService crawlerService;
 	
 	@Override
