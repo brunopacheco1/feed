@@ -22,7 +22,6 @@ import javax.ws.rs.core.Response.Status;
 import org.ecad.captacao.exception.GenericException;
 import org.ecad.captacao.persistence.AppUserGroup;
 import org.ecad.captacao.service.AppUserGroupService;
-import org.jboss.resteasy.annotations.GZIP;
 
 @Path("user-group")
 @Stateless
@@ -56,7 +55,6 @@ public class AppUserGroupResource extends AbstractResource {
 	}
 	
 	@GET
-	@GZIP
 	public Response list(@DefaultValue("0") @QueryParam("start") Integer start, @DefaultValue("100") @QueryParam("limit") Integer limit, @DefaultValue("id") @QueryParam("order") String order, @DefaultValue("asc") @QueryParam("dir") String dir) throws GenericException {
 		Map<String, Object> result = new HashMap<>();
 		

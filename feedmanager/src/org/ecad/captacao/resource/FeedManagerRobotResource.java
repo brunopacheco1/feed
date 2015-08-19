@@ -24,7 +24,6 @@ import org.ecad.captacao.persistence.Document;
 import org.ecad.captacao.persistence.NormalizationStatus;
 import org.ecad.captacao.persistence.Robot;
 import org.ecad.captacao.service.FeedManagerRobotService;
-import org.jboss.resteasy.annotations.GZIP;
 
 @Path("robot")
 @Stateless
@@ -57,7 +56,6 @@ public class FeedManagerRobotResource extends AbstractResource {
 	}
 
 	@GET
-	@GZIP
 	public Response list(@DefaultValue("0") @QueryParam("start") Integer start, @DefaultValue("100") @QueryParam("limit") Integer limit, @DefaultValue("id") @QueryParam("order") String order, @DefaultValue("asc") @QueryParam("dir") String dir) throws GenericException {
 		Map<String, Object> result = new HashMap<>();
 		
@@ -99,7 +97,6 @@ public class FeedManagerRobotResource extends AbstractResource {
 	
 	@GET
 	@Path("/{id}/documents")
-	@GZIP
 	public Response listDocuments(@PathParam("id") Long id, @DefaultValue("NOT_NORMALIZED") @QueryParam("status") NormalizationStatus status, @DefaultValue("0") @QueryParam("start") Integer start, @DefaultValue("100") @QueryParam("limit") Integer limit, @DefaultValue("id") @QueryParam("order") String order, @DefaultValue("asc") @QueryParam("dir") String dir) throws GenericException {
 		Map<String, Object> result = new HashMap<>();
 

@@ -7,6 +7,11 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import org.ecad.captacao.dao.RobotDAO;
 import org.ecad.captacao.exception.EntityExistsException;
@@ -19,8 +24,6 @@ import org.ecad.captacao.persistence.Document;
 import org.ecad.captacao.persistence.NormalizationStatus;
 import org.ecad.captacao.persistence.Robot;
 import org.ecad.captacao.persistence.RobotGroup;
-import org.jboss.resteasy.client.ClientRequest;
-import org.jboss.resteasy.client.ClientResponse;
 
 @Stateless
 public class FeedManagerRobotService extends AbstractService {
@@ -123,17 +126,12 @@ public class FeedManagerRobotService extends AbstractService {
 		data.put("managerUrl", appAddress + "/robot/" + robot.getId() + "/documents");
 		data.put("fields", robot.getFields());
 		
-		ClientRequest clientRequest = new ClientRequest(robot.getRobotUrl() + "/robot/normalizer/run");
-		clientRequest.accept("application/json");
-		
-		clientRequest.body("application/json", gson.toJson(data));
-		
+		Client client = ClientBuilder.newClient();
 		String responseStr = null;
 		
-		ClientResponse<String> response = null;
 		try {
-			response = clientRequest.post(String.class);
-			responseStr = response.getEntity();
+			Response response = client.target(robot.getRobotUrl() + "/robot/normalizer/run").request().post(Entity.entity(gson.toJson(data), MediaType.APPLICATION_JSON_TYPE));
+			responseStr = (String) response.getEntity();
 		} catch (Exception e) {
 			responseStr = e.getMessage();
 			logger.error(e.getMessage(), e);
@@ -158,23 +156,18 @@ public class FeedManagerRobotService extends AbstractService {
 		data.put("seedRegex", robot.getSeedRegex());
 		data.put("connectionTimeout", robot.getConnectionTimeout());
 		data.put("delay", robot.getDelay());
-
-		ClientRequest clientRequest = new ClientRequest(robot.getRobotUrl() + "/robot/crawler/run");
-		clientRequest.accept("application/json");
 		
-		clientRequest.body("application/json", gson.toJson(data));
-
+		Client client = ClientBuilder.newClient();
 		String responseStr = null;
 		
-		ClientResponse<String> response = null;
 		try {
-			response = clientRequest.post(String.class);
-			responseStr = response.getEntity();
+			Response response = client.target(robot.getRobotUrl() + "/robot/crawler/run").request().post(Entity.entity(gson.toJson(data), MediaType.APPLICATION_JSON_TYPE));
+			responseStr = (String) response.getEntity();
 		} catch (Exception e) {
 			responseStr = e.getMessage();
 			logger.error(e.getMessage(), e);
 		}
-		
+
 		return responseStr;
 	}
 
@@ -189,15 +182,12 @@ public class FeedManagerRobotService extends AbstractService {
 			throw new EntityNotFoundException(robotDAO.getEntityName() + " não encontrado");
 		}
 		
-		ClientRequest clientRequest = new ClientRequest(robot.getRobotUrl() + "/robot/status");
-		clientRequest.accept("application/json");
-		
+		Client client = ClientBuilder.newClient();
 		String responseStr = null;
 		
-		ClientResponse<String> response = null;
 		try {
-			response = clientRequest.get(String.class);
-			responseStr = response.getEntity();
+			Response response = client.target(robot.getRobotUrl() + "/robot/status").request().get();
+			responseStr = (String) response.getEntity();
 		} catch (Exception e) {
 			responseStr = e.getMessage();
 			logger.error(e.getMessage(), e);

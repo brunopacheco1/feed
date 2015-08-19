@@ -22,7 +22,6 @@ import javax.ws.rs.core.Response.Status;
 import org.ecad.captacao.exception.GenericException;
 import org.ecad.captacao.persistence.RobotGroup;
 import org.ecad.captacao.service.RobotGroupService;
-import org.jboss.resteasy.annotations.GZIP;
 import org.quartz.SchedulerException;
 
 @Path("robot-group")
@@ -57,7 +56,6 @@ public class RobotGroupResource extends AbstractResource {
 	}
 	
 	@GET
-	@GZIP
 	public Response list(@DefaultValue("0") @QueryParam("start") Integer start, @DefaultValue("100") @QueryParam("limit") Integer limit, @DefaultValue("id") @QueryParam("order") String order, @DefaultValue("asc") @QueryParam("dir") String dir) throws GenericException {
 		Map<String, Object> result = new HashMap<>();
 		

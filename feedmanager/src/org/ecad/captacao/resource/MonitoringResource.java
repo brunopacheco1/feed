@@ -17,7 +17,6 @@ import javax.ws.rs.core.Response.Status;
 import org.ecad.captacao.exception.GenericException;
 import org.ecad.captacao.persistence.Monitoring;
 import org.ecad.captacao.service.MonitoringService;
-import org.jboss.resteasy.annotations.GZIP;
 
 @Path("monitoring")
 @Stateless
@@ -35,7 +34,6 @@ public class MonitoringResource extends AbstractResource {
 	}
 	
 	@GET
-	@GZIP
 	public Response list(@DefaultValue("0") @QueryParam("start") Integer start, @DefaultValue("100") @QueryParam("limit") Integer limit, @DefaultValue("id") @QueryParam("order") String order, @DefaultValue("asc") @QueryParam("dir") String dir) throws GenericException {
 		Map<String, Object> result = new HashMap<>();
 		

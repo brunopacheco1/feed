@@ -23,7 +23,6 @@ import org.ecad.captacao.exception.GenericException;
 import org.ecad.captacao.persistence.Document;
 import org.ecad.captacao.persistence.NormalizationStatus;
 import org.ecad.captacao.service.DocumentService;
-import org.jboss.resteasy.annotations.GZIP;
 
 @Path("document")
 @Stateless
@@ -58,7 +57,6 @@ public class DocumentResource extends AbstractResource {
 	}
 	
 	@GET
-	@GZIP
 	public Response list(@DefaultValue("NOT_NORMALIZED") @QueryParam("status") NormalizationStatus status, @DefaultValue("0") @QueryParam("start") Integer start, @DefaultValue("100") @QueryParam("limit") Integer limit, @DefaultValue("id") @QueryParam("order") String order, @DefaultValue("asc") @QueryParam("dir") String dir) throws GenericException {
 		Map<String, Object> result = new HashMap<>();
 		
