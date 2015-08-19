@@ -111,7 +111,7 @@
 		{
 			"id": "1727df39-86dc-57f1-d4a8-68619a2f36e9",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user-group/",
+			"url": "http://localhost:8080/feedmanager/user-group/",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -131,7 +131,7 @@
 		{
 			"id": "225fdaa3-8d7e-7c4a-cab9-d3af06f7c25f",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/",
+			"url": "http://localhost:8080/feedmanager/robot/",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -150,7 +150,7 @@
 		{
 			"id": "2d15448c-c88f-5a4d-1243-43a260a2e437",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/1/documents?status=NOT_NORMALIZED&limit=1&dir=desc",
+			"url": "http://localhost:8080/feedmanager/robot/1/documents?status=NOT_NORMALIZED&limit=1&dir=desc",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -169,7 +169,7 @@
 		{
 			"id": "3b4da376-9104-94b0-2b85-3a0ed1fd78ae",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot-group/",
+			"url": "http://localhost:8080/feedmanager/robot-group/",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -188,7 +188,7 @@
 		{
 			"id": "47e31bcd-13dd-fe9c-147e-8830aa43a041",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user/2",
+			"url": "http://localhost:8080/feedmanager/user/2",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "DELETE",
@@ -208,7 +208,7 @@
 		{
 			"id": "4a06a727-911f-034e-e771-5976f46059dc",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot-group/1/status",
+			"url": "http://localhost:8080/feedmanager/robot-group/1/status",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -227,7 +227,7 @@
 		{
 			"id": "5375f450-f155-33bc-e52d-d591a95a9b6d",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user-group/2",
+			"url": "http://localhost:8080/feedmanager/user-group/2",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "DELETE",
@@ -247,7 +247,7 @@
 		{
 			"id": "5899265d-0256-8f82-3680-927ba1d8c31c",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot-group/1",
+			"url": "http://localhost:8080/feedmanager/robot-group/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "PUT",
@@ -267,7 +267,7 @@
 		{
 			"id": "6185743b-2e2e-8bbe-0c58-8442e3c1c750",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user/",
+			"url": "http://localhost:8080/feedmanager/user/",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -287,7 +287,7 @@
 		{
 			"id": "78894ff9-9427-68c2-381e-6db6f7a45ea6",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user-group/2",
+			"url": "http://localhost:8080/feedmanager/user-group/2",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "PUT",
@@ -307,7 +307,7 @@
 		{
 			"id": "79f183d5-0512-3e01-ebd3-17b8c1f14214",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/monitoring?dir=desc&limit=10",
+			"url": "http://localhost:8080/feedmanager/monitoring?dir=desc&limit=10",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -326,7 +326,7 @@
 		{
 			"id": "8e254831-9229-177a-9aa2-c4110fd814c1",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/1/documents?status=NORMALIZED&limit=1&dir=desc",
+			"url": "http://localhost:8080/feedmanager/robot/1/documents?status=NORMALIZED&limit=1&dir=desc",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -345,7 +345,7 @@
 		{
 			"id": "969c736a-bcfb-f59a-d829-5b2f43aaa822",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/monitoring/1",
+			"url": "http://localhost:8080/feedmanager/monitoring/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -364,7 +364,7 @@
 		{
 			"id": "a5e21dbc-5c6b-0028-1a9d-5d817ac05839",
 			"headers": "Content-Type: application/json\n",
-			"url": "http://localhost/feedmanager/user/login",
+			"url": "http://localhost:8080/feedmanager/user/login",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -387,7 +387,7 @@
 		{
 			"id": "a8dcdb36-23a8-7e7f-1e61-b67b1335f0fa",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/1",
+			"url": "http://localhost:8080/feedmanager/robot/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "PUT",
@@ -402,12 +402,12 @@
 			"description": "",
 			"collectionId": "96a8ac62-078e-4271-74a2-7be36da0fcd5",
 			"responses": [],
-			"rawModeData": "{\r\n    \"name\":\"Robô G1 Update\",\r\n    \"robotUrl\":\"http://localhost/globo\",\r\n    \"seedUrl\":\"http://g1.globo.com/index.html\",\r\n    \"documentRegex\":\"^http:\\\\/\\\\/(g1)*(globoesporte)*\\\\.globo\\\\.com\\\\/.+?(\\\\/noticia\\\\/\\\\d{4}/\\\\d{2}\\\\/.*?\\\\.html)$\",\r\n    \"endDepth\":2,\r\n    \"seedRegex\":\"^http:\\\\/\\\\/(g1)*(globoesporte)*\\\\.globo\\\\.com(\\\\/carros\\\\/)*(\\\\/ciencia-e-saude\\\\/)*(\\\\/concursos-e-emprego\\\\/)*(\\\\/economia\\\\/)*(\\\\/educacao\\\\/)*(\\\\/mundo\\\\/)*(\\\\/musica\\\\/)*(\\\\/natureza\\\\/)*(\\\\/planeta-bizarro\\\\/)*(\\\\/politica\\\\/)*(\\\\/pop-arte\\\\/)*(\\\\/tecnologia\\\\/)*(\\\\/turismo-e-viagem\\\\/)*$\",\r\n    \"connectionTimeout\":0,\r\n    \"delay\":0,\r\n    \"robotGroup\":{\"id\":1},\r\n    \"fields\": {\r\n        \"title\":\"div.materia-titulo > h1.entry-title\",\r\n        \"publishDate\":\"abbr.published\",\r\n        \"subtitle\":\"div.materia-titulo > h2\",\r\n        \"text\":\"div.materia-conteudo p\",\r\n        \"locality\":\"span.locality\",\r\n        \"updateDate\":\"abbr.updated\",\r\n        \"author\":\"p.author > strong.fn\"\r\n    }\r\n}"
+			"rawModeData": "{\r\n    \"name\":\"Robô G1 Update\",\r\n    \"robotUrl\":\"http://localhost:8080/globo\",\r\n    \"seedUrl\":\"http://g1.globo.com/index.html\",\r\n    \"documentRegex\":\"^http:\\\\/\\\\/(g1)*(globoesporte)*\\\\.globo\\\\.com\\\\/.+?(\\\\/noticia\\\\/\\\\d{4}/\\\\d{2}\\\\/.*?\\\\.html)$\",\r\n    \"endDepth\":2,\r\n    \"seedRegex\":\"^http:\\\\/\\\\/(g1)*(globoesporte)*\\\\.globo\\\\.com(\\\\/carros\\\\/)*(\\\\/ciencia-e-saude\\\\/)*(\\\\/concursos-e-emprego\\\\/)*(\\\\/economia\\\\/)*(\\\\/educacao\\\\/)*(\\\\/mundo\\\\/)*(\\\\/musica\\\\/)*(\\\\/natureza\\\\/)*(\\\\/planeta-bizarro\\\\/)*(\\\\/politica\\\\/)*(\\\\/pop-arte\\\\/)*(\\\\/tecnologia\\\\/)*(\\\\/turismo-e-viagem\\\\/)*$\",\r\n    \"connectionTimeout\":0,\r\n    \"delay\":0,\r\n    \"robotGroup\":{\"id\":1},\r\n    \"fields\": {\r\n        \"title\":\"div.materia-titulo > h1.entry-title\",\r\n        \"publishDate\":\"abbr.published\",\r\n        \"subtitle\":\"div.materia-titulo > h2\",\r\n        \"text\":\"div.materia-conteudo p\",\r\n        \"locality\":\"span.locality\",\r\n        \"updateDate\":\"abbr.updated\",\r\n        \"author\":\"p.author > strong.fn\"\r\n    }\r\n}"
 		},
 		{
 			"id": "b3b068fd-7c25-92c8-e417-7443858a3d48",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/",
+			"url": "http://localhost:8080/feedmanager/robot/",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -422,12 +422,12 @@
 			"description": "",
 			"collectionId": "96a8ac62-078e-4271-74a2-7be36da0fcd5",
 			"responses": [],
-			"rawModeData": "{\r\n    \"name\":\"Robô G1\",\r\n    \"robotUrl\":\"http://localhost/globo\",\r\n    \"seedUrl\":\"http://g1.globo.com/index.html\",\r\n    \"documentRegex\":\"^http:\\\\/\\\\/(g1)*(globoesporte)*\\\\.globo\\\\.com\\\\/.+?(\\\\/noticia\\\\/\\\\d{4}/\\\\d{2}\\\\/.*?\\\\.html)$\",\r\n    \"endDepth\":2,\r\n    \"seedRegex\":\"^http:\\\\/\\\\/(g1)*(globoesporte)*\\\\.globo\\\\.com(\\\\/carros\\\\/)*(\\\\/ciencia-e-saude\\\\/)*(\\\\/concursos-e-emprego\\\\/)*(\\\\/economia\\\\/)*(\\\\/educacao\\\\/)*(\\\\/mundo\\\\/)*(\\\\/musica\\\\/)*(\\\\/natureza\\\\/)*(\\\\/planeta-bizarro\\\\/)*(\\\\/politica\\\\/)*(\\\\/pop-arte\\\\/)*(\\\\/tecnologia\\\\/)*(\\\\/turismo-e-viagem\\\\/)*$\",\r\n    \"connectionTimeout\":0,\r\n    \"delay\":0,\r\n    \"robotGroup\":{\"id\":1},\r\n    \"fields\": {\r\n        \"title\":\"div.materia-titulo > h1.entry-title\",\r\n        \"publishDate\":\"abbr.published\",\r\n        \"subtitle\":\"div.materia-titulo > h2\",\r\n        \"text\":\"div.materia-conteudo p\",\r\n        \"locality\":\"span.locality\",\r\n        \"updateDate\":\"abbr.updated\",\r\n        \"author\":\"p.author > strong.fn\"\r\n    }\r\n}"
+			"rawModeData": "{\r\n    \"name\":\"Robô G1\",\r\n    \"robotUrl\":\"http://localhost:8080/globo\",\r\n    \"seedUrl\":\"http://g1.globo.com/index.html\",\r\n    \"documentRegex\":\"^http:\\\\/\\\\/(g1)*(globoesporte)*\\\\.globo\\\\.com\\\\/.+?(\\\\/noticia\\\\/\\\\d{4}/\\\\d{2}\\\\/.*?\\\\.html)$\",\r\n    \"endDepth\":2,\r\n    \"seedRegex\":\"^http:\\\\/\\\\/(g1)*(globoesporte)*\\\\.globo\\\\.com(\\\\/carros\\\\/)*(\\\\/ciencia-e-saude\\\\/)*(\\\\/concursos-e-emprego\\\\/)*(\\\\/economia\\\\/)*(\\\\/educacao\\\\/)*(\\\\/mundo\\\\/)*(\\\\/musica\\\\/)*(\\\\/natureza\\\\/)*(\\\\/planeta-bizarro\\\\/)*(\\\\/politica\\\\/)*(\\\\/pop-arte\\\\/)*(\\\\/tecnologia\\\\/)*(\\\\/turismo-e-viagem\\\\/)*$\",\r\n    \"connectionTimeout\":0,\r\n    \"delay\":0,\r\n    \"robotGroup\":{\"id\":1},\r\n    \"fields\": {\r\n        \"title\":\"div.materia-titulo > h1.entry-title\",\r\n        \"publishDate\":\"abbr.published\",\r\n        \"subtitle\":\"div.materia-titulo > h2\",\r\n        \"text\":\"div.materia-conteudo p\",\r\n        \"locality\":\"span.locality\",\r\n        \"updateDate\":\"abbr.updated\",\r\n        \"author\":\"p.author > strong.fn\"\r\n    }\r\n}"
 		},
 		{
 			"id": "b6623528-f95d-a295-dea0-957ad3abde99",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot-group/1",
+			"url": "http://localhost:8080/feedmanager/robot-group/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -446,7 +446,7 @@
 		{
 			"id": "bfc555b4-401a-bec0-8822-ff16c4e70b6f",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/1",
+			"url": "http://localhost:8080/feedmanager/robot/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -465,7 +465,7 @@
 		{
 			"id": "c3083445-894e-61e5-d42c-4dd630538b14",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user/2",
+			"url": "http://localhost:8080/feedmanager/user/2",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "PUT",
@@ -485,7 +485,7 @@
 		{
 			"id": "c56dcd98-1da0-b350-f486-e6e8eaf532cc",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user-group/2",
+			"url": "http://localhost:8080/feedmanager/user-group/2",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -504,7 +504,7 @@
 		{
 			"id": "d0c5bebc-9637-ca1b-62ed-8770ed57eaa4",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user/1",
+			"url": "http://localhost:8080/feedmanager/user/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -523,7 +523,7 @@
 		{
 			"id": "d8b080eb-e297-ca59-8694-8343ddd0537c",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot-group/1",
+			"url": "http://localhost:8080/feedmanager/robot-group/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "DELETE",
@@ -543,7 +543,7 @@
 		{
 			"id": "d9a6f92b-0e5a-0b39-6c71-81a4aa4d5ec0",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot-group/1/run",
+			"url": "http://localhost:8080/feedmanager/robot-group/1/run",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -563,7 +563,7 @@
 		{
 			"id": "dc4c7ea1-abc9-e934-9b9a-385456e790c1",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user-group/",
+			"url": "http://localhost:8080/feedmanager/user-group/",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -582,7 +582,7 @@
 		{
 			"id": "e29d8ed7-68ba-0338-cee0-25227986e5cb",
 			"headers": "Content-Type: application/json\nAuthorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot-group/",
+			"url": "http://localhost:8080/feedmanager/robot-group/",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -602,7 +602,7 @@
 		{
 			"id": "ebc3e057-703e-6c5c-d669-f4ed46d21d9e",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/user/",
+			"url": "http://localhost:8080/feedmanager/user/",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
@@ -621,7 +621,7 @@
 		{
 			"id": "ecb42fa3-4b29-8eb9-fe2b-1fbd97238bc5",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/1",
+			"url": "http://localhost:8080/feedmanager/robot/1",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "DELETE",
@@ -641,7 +641,7 @@
 		{
 			"id": "f08a3cb8-a93d-76ea-431b-58512b444784",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/1/run",
+			"url": "http://localhost:8080/feedmanager/robot/1/run",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "POST",
@@ -661,7 +661,7 @@
 		{
 			"id": "fe045563-086c-3de6-7f25-d0edb6d0a6da",
 			"headers": "Authorization: b1f650401989debdf1bd9455b9fdbada\n",
-			"url": "http://localhost/feedmanager/robot/1/status",
+			"url": "http://localhost:8080/feedmanager/robot/1/status",
 			"preRequestScript": "",
 			"pathVariables": {},
 			"method": "GET",
