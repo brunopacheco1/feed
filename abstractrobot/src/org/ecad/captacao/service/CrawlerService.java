@@ -20,6 +20,7 @@ import javax.naming.NamingException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -129,7 +130,7 @@ public class CrawlerService extends AbstractService {
 		Client client = ClientBuilder.newClient();
 		
 		try {
-			Response response = client.target(managerUrl).request().post(Entity.entity(gson.toJson(documentsToNormalize), MediaType.APPLICATION_JSON_TYPE));
+			Response response = client.target(managerUrl).request().accept(MediaType.APPLICATION_JSON).header(HttpHeaders.AUTHORIZATION, key).header("Robot", "yes").post(Entity.entity(gson.toJson(documentsToNormalize), MediaType.APPLICATION_JSON_TYPE));
 			status = response.getStatus();
 		} catch (Exception e) {
 			status = 500;
