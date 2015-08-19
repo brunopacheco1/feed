@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee" version="3.0" metadata-complete="false">
+	<enterprise-beans>
+		<message-driven>
+			<ejb-name>NotNormalizedDocumentsToPersistQueueConsumer</ejb-name>
+			<ejb-class>org.ecad.captacao.consumer.NotNormalizedDocumentsToPersistQueueConsumer</ejb-class>
+			<messaging-type>javax.jms.MessageListener</messaging-type>
+
+			<activation-config>
+				<activation-config-property>
+					<activation-config-property-name>destination</activation-config-property-name>
+					<activation-config-property-value>java:jboss/queue/feedmanager/document/to/normalize/persist/${app.context}</activation-config-property-value>
+				</activation-config-property>
+				<activation-config-property>
+					<activation-config-property-name>destinationType</activation-config-property-name>
+					<activation-config-property-value>javax.jms.Queue</activation-config-property-value>
+				</activation-config-property>
+			</activation-config>
+		</message-driven>
+		
+		<message-driven>
+			<ejb-name>NormalizedDocumentsToPersistQueueConsumer</ejb-name>
+			<ejb-class>org.ecad.captacao.consumer.NormalizedDocumentsToPersistQueueConsumer</ejb-class>
+			<messaging-type>javax.jms.MessageListener</messaging-type>
+
+			<activation-config>
+				<activation-config-property>
+					<activation-config-property-name>destination</activation-config-property-name>
+					<activation-config-property-value>java:jboss/queue/feedmanager/document/normalized/persist/${app.context}</activation-config-property-value>
+				</activation-config-property>
+				<activation-config-property>
+					<activation-config-property-name>destinationType</activation-config-property-name>
+					<activation-config-property-value>javax.jms.Queue</activation-config-property-value>
+				</activation-config-property>
+			</activation-config>
+		</message-driven>
+	</enterprise-beans>
+</ejb-jar>

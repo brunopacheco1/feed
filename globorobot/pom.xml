@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.ecad.captacao</groupId>
+	<version>1.0</version>
+	<artifactId>globorobot</artifactId>
+	<packaging>war</packaging>
+	<build>
+		<filters>
+	        <filter>${basedir}/WebContent/WEB-INF/robot.properties</filter>  
+	    </filters>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<webResources>
+	                    <resource>
+	                    <directory>${basedir}/WebContent</directory>
+	                        <!-- Turn on filtering. If you want to filter more files you can use wildcards like **/*.xml -->
+	                        <filtering>true</filtering>
+	                        <includes>
+	                            <include>WEB-INF/*.xml</include>
+	                        </includes>
+	                    </resource>
+	                </webResources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.ecad.captacao</groupId>
+			<artifactId>abstractrobot</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+</project>
