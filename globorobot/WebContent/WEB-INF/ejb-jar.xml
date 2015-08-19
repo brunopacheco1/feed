@@ -1,4 +1,5 @@
-<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee" version="3.0" metadata-complete="false">
+<ejb-jar version="3.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd">
 	<enterprise-beans>
 		<!-- NORMALIZER -->
 		<message-driven>
@@ -17,7 +18,7 @@
 				</activation-config-property>
 			</activation-config>
 		</message-driven>
-		
+
 		<!-- ROBOT -->
 		<message-driven>
 			<ejb-name>Robot</ejb-name>
