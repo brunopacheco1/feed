@@ -10,6 +10,15 @@
 			<filter>${basedir}/WebContent/WEB-INF/feedmanager.properties</filter>
 		</filters>
 		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>META-INF/persistence.xml</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -36,6 +45,20 @@
 							</includes>
 						</resource>
 					</webResources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<configuration>
+					<container>
+						<containerId>wildfly8x</containerId>
+						<home>/home/casa/desenv/wildfly-8.2.1.Final</home>
+					</container>
+					<configuration>
+						<type>existing</type>
+						<home>/home/casa/desenv/wildfly-8.2.1.Final/standalone</home>
+					</configuration>
 				</configuration>
 			</plugin>
 		</plugins>
