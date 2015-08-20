@@ -45,8 +45,8 @@ public class MonitoringService extends AbstractService {
 			throw new EntityNotFoundException(monitoringDAO.getEntityName() + " não encontrado");
 		}
 		
-		if(monitoring.getEndDate() == null || monitoring.getExecutionTime() == null || monitoring.getIp() == null || monitoring.getMethod() == null || monitoring.getPath() == null || monitoring.getResponseStatus() == null || monitoring.getResponseType() == null || monitoring.getStartDate() == null) {
-			throw new MandatoryFieldsException("endDate, executionTime, ip, method, path, responseStatus, responseType e startDate são campos obrigatórios");
+		if(monitoring.getEndDate() == null || monitoring.getExecutionTime() == null || monitoring.getIp() == null || monitoring.getMethod() == null || monitoring.getPath() == null || monitoring.getResponseStatus() == null || monitoring.getStartDate() == null) {
+			throw new MandatoryFieldsException("endDate, executionTime, ip, method, path, responseStatus e startDate são campos obrigatórios");
 		}
 	}
 }

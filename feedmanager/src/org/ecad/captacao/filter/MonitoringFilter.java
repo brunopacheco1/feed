@@ -128,7 +128,9 @@ public class MonitoringFilter implements ContainerRequestFilter, ContainerRespon
 		
 		monitoring.setResponseBody(responseBody);
 		monitoring.setResponseStatus(responseStatus);
-		monitoring.setResponseType(responseType.toString());
+		if(responseType != null) {
+			monitoring.setResponseType(responseType.toString());
+		}
 		monitoring.setStartDate(startDate);
 		monitoring.setToken(token);
 		
