@@ -27,8 +27,6 @@ import javax.ws.rs.core.Response;
 import org.ecad.captacao.model.Document;
 import org.ecad.captacao.model.Seed;
 
-import com.google.gson.Gson;
-
 @Stateless
 public class CrawlerService extends AbstractService {
 
@@ -126,7 +124,7 @@ public class CrawlerService extends AbstractService {
 		
 		Long time = System.currentTimeMillis();
 		Integer status = 200;
-		Gson gson = new Gson();
+
 		Client client = ClientBuilder.newClient();
 		
 		try {
