@@ -20,13 +20,13 @@
 	<env-entry>
 		<env-entry-name>normalizerQueue</env-entry-name>
 		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>java:jboss/queue/robot/normalizer/documents/${app.context}</env-entry-value>
+		<env-entry-value>java:/jms/queue/${app.context}/normalizer/documents</env-entry-value>
 	</env-entry>
 
 	<!-- QUEUE OF SEED TO CRAWL -->
 	<env-entry>
 		<env-entry-name>crawlerQueue</env-entry-name>
 		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>java:jboss/queue/robot/crawler/seed/${app.context}</env-entry-value>
+		<env-entry-value>java:/jms/queue/${app.context}/crawler/seed</env-entry-value>
 	</env-entry>
 </web-app>

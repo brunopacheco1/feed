@@ -20,13 +20,13 @@
 	<env-entry>
 		<env-entry-name>documentToNormalizeQueue</env-entry-name>
 		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>java:jboss/queue/feedmanager/document/to/normalize/persist/${app.context}</env-entry-value>
+		<env-entry-value>java:/jms/queue/${app.context}/document/to/normalize/persist</env-entry-value>
 	</env-entry>
 
 	<env-entry>
 		<env-entry-name>normalizedDocumentQueue</env-entry-name>
 		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>java:jboss/queue/feedmanager/document/normalized/persist/${app.context}</env-entry-value>
+		<env-entry-value>java:/jms/queue/${app.context}/document/normalized/persist</env-entry-value>
 	</env-entry>
 
 	<env-entry>

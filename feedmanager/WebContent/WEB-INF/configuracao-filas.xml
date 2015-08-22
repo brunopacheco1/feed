@@ -1,0 +1,8 @@
+<jms-destinations>
+	<jms-queue name="${app.context}DocumentToNormalizeQueue">
+	    <entry name="java:/jms/queue/${app.context}/document/to/normalize/persist"/>
+	</jms-queue>
+	<jms-queue name="${app.context}DocumentNormalizedQueue">
+	    <entry name="java:/jms/queue/${app.context}/document/normalized/persist"/>
+	</jms-queue>
+</jms-destinations>

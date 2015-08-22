@@ -1,0 +1,8 @@
+<datasource jndi-name="java:jboss/datasources/${app.context}DS" pool-name="${app.context}DS" enabled="true" use-java-context="true">
+	<connection-url>jdbc:postgresql://localhost:5432/feed</connection-url>
+	<driver>postgres</driver>
+	<security>
+		<user-name>casa</user-name>
+		<password>monteiro</password>
+	</security>
+</datasource>

@@ -10,7 +10,7 @@
 			<activation-config>
 				<activation-config-property>
 					<activation-config-property-name>destination</activation-config-property-name>
-					<activation-config-property-value>java:jboss/queue/robot/normalizer/documents/${app.context}</activation-config-property-value>
+					<activation-config-property-value>java:/jms/queue/${app.context}/normalizer/documents</activation-config-property-value>
 				</activation-config-property>
 				<activation-config-property>
 					<activation-config-property-name>destinationType</activation-config-property-name>
@@ -19,16 +19,16 @@
 			</activation-config>
 		</message-driven>
 
-		<!-- ROBOT -->
+		<!-- CRAWLER -->
 		<message-driven>
-			<ejb-name>Robot</ejb-name>
-			<ejb-class>${robot.class}</ejb-class>
+			<ejb-name>Crawler</ejb-name>
+			<ejb-class>${crawler.class}</ejb-class>
 			<messaging-type>javax.jms.MessageListener</messaging-type>
 
 			<activation-config>
 				<activation-config-property>
 					<activation-config-property-name>destination</activation-config-property-name>
-					<activation-config-property-value>java:jboss/queue/robot/crawler/seed/${app.context}</activation-config-property-value>
+					<activation-config-property-value>java:/jms/queue/${app.context}/crawler/seed</activation-config-property-value>
 				</activation-config-property>
 				<activation-config-property>
 					<activation-config-property-name>destinationType</activation-config-property-name>

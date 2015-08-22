@@ -1,0 +1,11 @@
+<jms-destinations>
+	<!-- QUEUE OF DOCUMENTS TO NORMALIZE -->
+	<jms-queue name="${app.context}NormalizerQueue">
+	    <entry name="java:/jms/queue/${app.context}/normalizer/documents"/>
+	</jms-queue>
+	
+	<!-- QUEUE OF SEED TO CRAWL -->
+	<jms-queue name="${app.context}CrawlerQueue">
+	    <entry name="java:/jms/queue/${app.context}/crawler/seed"/>
+	</jms-queue>
+</jms-destinations>
