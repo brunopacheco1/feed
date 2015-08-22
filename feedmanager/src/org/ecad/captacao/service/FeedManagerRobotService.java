@@ -131,7 +131,7 @@ public class FeedManagerRobotService extends AbstractService {
 		
 		try {
 			Response response = client.target(robot.getRobotUrl() + "/robot/normalizer/run").request().post(Entity.entity(gson.toJson(data), MediaType.APPLICATION_JSON_TYPE));
-			responseStr = (String) response.getEntity();
+			responseStr = response.readEntity(String.class);
 		} catch (Exception e) {
 			responseStr = e.getMessage();
 			logger.error(e.getMessage(), e);
@@ -162,7 +162,7 @@ public class FeedManagerRobotService extends AbstractService {
 		
 		try {
 			Response response = client.target(robot.getRobotUrl() + "/robot/crawler/run").request().post(Entity.entity(gson.toJson(data), MediaType.APPLICATION_JSON_TYPE));
-			responseStr = (String) response.getEntity();
+			responseStr = response.readEntity(String.class);
 		} catch (Exception e) {
 			responseStr = e.getMessage();
 			logger.error(e.getMessage(), e);
@@ -187,7 +187,7 @@ public class FeedManagerRobotService extends AbstractService {
 		
 		try {
 			Response response = client.target(robot.getRobotUrl() + "/robot/status").request().get();
-			responseStr = (String) response.getEntity();
+			responseStr = response.readEntity(String.class);
 		} catch (Exception e) {
 			responseStr = e.getMessage();
 			logger.error(e.getMessage(), e);
