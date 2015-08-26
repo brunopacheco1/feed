@@ -52,12 +52,12 @@
 				<artifactId>cargo-maven2-plugin</artifactId>
 				<configuration>
 					<container>
-						<containerId>wildfly8x</containerId>
-						<home>/home/casa/desenv/wildfly-8.2.1.Final</home>
+						<containerId>wildfly9x</containerId>
+						<home>/home/casa/desenvolvimento/wildfly-9.0.1.Final</home>
 					</container>
 					<configuration>
 						<type>existing</type>
-						<home>/home/casa/desenv/wildfly-8.2.1.Final/standalone</home>
+						<home>/home/casa/desenvolvimento/wildfly-9.0.1.Final/standalone</home>
 					</configuration>
 				</configuration>
 			</plugin>
