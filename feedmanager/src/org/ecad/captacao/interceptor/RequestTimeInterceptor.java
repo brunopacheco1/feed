@@ -1,15 +1,15 @@
 package org.ecad.captacao.interceptor;
 
+import java.util.logging.Logger;
+
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
-
-import org.jboss.logging.Logger;
 
 public class RequestTimeInterceptor {
 
 	@AroundInvoke
 	public Object checkTime(InvocationContext invocationContext) throws Exception {
-		Logger logger = Logger.getLogger(invocationContext.getTarget().getClass());
+		Logger logger = Logger.getLogger(invocationContext.getTarget().getClass().getName());
 		
 		Long time = System.currentTimeMillis();
 		

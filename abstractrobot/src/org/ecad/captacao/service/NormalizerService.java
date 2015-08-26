@@ -1,6 +1,7 @@
 package org.ecad.captacao.service;
 
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -56,7 +57,7 @@ public class NormalizerService extends AbstractService {
             normalizerQueueDestination = (Destination) ctx.lookup(normalizerQueue);
             normalizerQueueProducer = session.createProducer(normalizerQueueDestination);
         } catch (JMSException | NamingException e) {
-            logger.error(e.getMessage(), e);
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new RuntimeException(e);
         }
     }
@@ -92,7 +93,7 @@ public class NormalizerService extends AbstractService {
             message = session.createObjectMessage(document);
             normalizerQueueProducer.send(message);
         } catch (JMSException e) {
-            logger.error(e.getMessage(), e);
+            logger.log(Level.SEVERE, e.getMessage(), e);
         }
     }
     
@@ -136,7 +137,7 @@ public class NormalizerService extends AbstractService {
 			status = response.getStatus();
 		} catch (Exception e) {
 			status = 500;
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 		
 		time = System.currentTimeMillis() - time;

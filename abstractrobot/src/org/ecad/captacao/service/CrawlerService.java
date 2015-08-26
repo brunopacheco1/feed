@@ -1,6 +1,7 @@
 package org.ecad.captacao.service;
 
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -55,7 +56,7 @@ public class CrawlerService extends AbstractService {
             crawlerQueueDestination = (Destination) ctx.lookup(crawlerQueue);
             crawlerQueueProducer = session.createProducer(crawlerQueueDestination);
         } catch (JMSException | NamingException e) {
-            logger.error(e.getMessage(), e);
+            logger.log(Level.SEVERE, e.getMessage(), e);
             throw new RuntimeException(e);
         }
     }
@@ -91,7 +92,7 @@ public class CrawlerService extends AbstractService {
             message = session.createObjectMessage(seed);
             crawlerQueueProducer.send(message);
         } catch (JMSException e) {
-            logger.error(e.getMessage(), e);
+            logger.log(Level.SEVERE, e.getMessage(), e);
         }
     }
     
@@ -132,7 +133,7 @@ public class CrawlerService extends AbstractService {
 			status = response.getStatus();
 		} catch (Exception e) {
 			status = 500;
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 		
 		time = System.currentTimeMillis() - time;

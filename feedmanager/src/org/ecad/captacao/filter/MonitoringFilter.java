@@ -3,6 +3,8 @@ package org.ecad.captacao.filter;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.annotation.Priority;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +23,6 @@ import org.ecad.captacao.exception.GenericException;
 import org.ecad.captacao.locator.ServiceLocator;
 import org.ecad.captacao.persistence.Monitoring;
 import org.ecad.captacao.service.MonitoringService;
-import org.jboss.logging.Logger;
 import org.joda.time.DateTime;
 
 @Provider
@@ -34,7 +35,7 @@ public class MonitoringFilter implements ContainerRequestFilter, ContainerRespon
     
     private MonitoringService monitoringService = ServiceLocator.getInstance().lookup(MonitoringService.class);
     
-    protected Logger logger = Logger.getLogger(this.getClass());
+    protected Logger logger = Logger.getLogger(this.getClass().getName());
     
     @Context
 	private HttpServletRequest request;
@@ -137,7 +138,7 @@ public class MonitoringFilter implements ContainerRequestFilter, ContainerRespon
 		try {
 			monitoringService.add(monitoring);
 		} catch (GenericException e) {
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 	

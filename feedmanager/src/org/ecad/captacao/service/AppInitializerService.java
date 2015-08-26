@@ -1,6 +1,7 @@
 package org.ecad.captacao.service;
 
 import java.util.Date;
+import java.util.logging.Level;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -72,7 +73,7 @@ public class AppInitializerService extends AbstractService {
 			} catch (EntityExistsException e) {
 				//Ignorar quando existir
 			} catch (GenericException e) {
-				logger.error(e.getMessage(), e);
+				logger.log(Level.SEVERE, e.getMessage(), e);
 			}
 		}
 		

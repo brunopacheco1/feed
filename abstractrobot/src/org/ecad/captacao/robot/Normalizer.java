@@ -1,5 +1,8 @@
 package org.ecad.captacao.robot;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -8,13 +11,12 @@ import javax.jms.ObjectMessage;
 
 import org.ecad.captacao.model.Document;
 import org.ecad.captacao.service.NormalizerService;
-import org.jboss.logging.Logger;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 
 public class Normalizer implements MessageListener {
 
-protected Logger logger = Logger.getLogger(this.getClass());
+	protected Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	@Inject
 	protected NormalizerService normalizerService;
@@ -29,7 +31,7 @@ protected Logger logger = Logger.getLogger(this.getClass());
         try {
         	document = (Document) objMsg.getObject();
         } catch (JMSException e) {
-            logger.error(e.getMessage(), e);
+            logger.log(Level.SEVERE, e.getMessage(), e);
         }
         
         Long time = System.currentTimeMillis();
@@ -48,7 +50,7 @@ protected Logger logger = Logger.getLogger(this.getClass());
 	    	try {
 				Thread.sleep(document.getDelay());
 			} catch (Exception e) {
-				logger.error(e.getMessage(), e);
+				logger.log(Level.SEVERE, e.getMessage(), e);
 			}
 		}
         
@@ -63,7 +65,7 @@ protected Logger logger = Logger.getLogger(this.getClass());
 		try {
 			body = connection.get();
 		} catch (Exception e) {
-			logger.error(String.format("Documento com problemas de acesso: %s", document.getUrl()));
+			logger.log(Level.SEVERE, String.format("Documento com problemas de acesso: %s", document.getUrl()));
 			return;
 		}
 		

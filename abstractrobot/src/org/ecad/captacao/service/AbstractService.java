@@ -2,10 +2,9 @@ package org.ecad.captacao.service;
 
 import java.lang.reflect.Type;
 import java.util.Date;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
-
-import org.jboss.logging.Logger;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,7 +17,7 @@ public abstract class AbstractService {
 
 	protected Gson gson;
 
-	protected Logger logger = Logger.getLogger(this.getClass());
+	protected Logger logger = Logger.getLogger(this.getClass().getName());
 
 	@PostConstruct
 	private void initConfig() {

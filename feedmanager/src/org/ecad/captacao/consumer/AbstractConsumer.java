@@ -1,8 +1,8 @@
 package org.ecad.captacao.consumer;
 
-import org.jboss.logging.Logger;
+import java.util.logging.Logger;
 
 public abstract class AbstractConsumer {
 
-	protected Logger logger = Logger.getLogger(this.getClass());
+	protected Logger logger = Logger.getLogger(this.getClass().getName());
 }

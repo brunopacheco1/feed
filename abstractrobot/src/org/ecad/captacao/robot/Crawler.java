@@ -1,5 +1,8 @@
 package org.ecad.captacao.robot;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.inject.Inject;
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -8,7 +11,6 @@ import javax.jms.ObjectMessage;
 
 import org.ecad.captacao.model.Seed;
 import org.ecad.captacao.service.CrawlerService;
-import org.jboss.logging.Logger;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -16,7 +18,7 @@ import org.jsoup.nodes.Element;
 
 public class Crawler implements MessageListener {
 	
-	protected Logger logger = Logger.getLogger(this.getClass());
+	protected Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	@Inject
 	protected CrawlerService crawlerService;
@@ -31,7 +33,7 @@ public class Crawler implements MessageListener {
         try {
         	seed = (Seed) objMsg.getObject();
         } catch (JMSException e) {
-            logger.error(e.getMessage(), e);
+            logger.log(Level.SEVERE, e.getMessage(), e);
         }
         
         if(seed == null) {
@@ -54,7 +56,7 @@ public class Crawler implements MessageListener {
 	    	try {
 				Thread.sleep(seed.getDelay());
 			} catch (Exception e) {
-				logger.error(e.getMessage(), e);
+				logger.log(Level.SEVERE, e.getMessage(), e);
 			}
 		}
     	
@@ -69,7 +71,7 @@ public class Crawler implements MessageListener {
 		try {
 			body = connection.get();
 		} catch (Exception e) {
-			logger.error(String.format("Seed com problemas de acesso: %s", seed.getSeedUrl()));
+			logger.log(Level.SEVERE, String.format("Seed com problemas de acesso: %s", seed.getSeedUrl()));
 			return;
 		}
 		

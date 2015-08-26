@@ -1,6 +1,7 @@
 package org.ecad.captacao.consumer;
 
 import java.util.Date;
+import java.util.logging.Level;
 
 import javax.inject.Inject;
 import javax.jms.JMSException;
@@ -31,7 +32,7 @@ public class NotNormalizedDocumentsToPersistQueueConsumer extends AbstractConsum
         try {
         	document = (Document) objMsg.getObject();
         } catch (JMSException e) {
-        	logger.error(e.getMessage(), e);
+        	logger.log(Level.SEVERE, e.getMessage(), e);
 		}
         
         if(document == null) {
@@ -46,7 +47,7 @@ public class NotNormalizedDocumentsToPersistQueueConsumer extends AbstractConsum
 		} catch (EntityExistsException e) {
 			// Validacao de existencia, nesse caso, pode ser ignorada
         } catch (GenericException e) {
-        	logger.error(e.getMessage(), e);
+        	logger.log(Level.SEVERE, e.getMessage(), e);
 		}
     	
     	service.remove(document);

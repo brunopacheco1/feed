@@ -2,6 +2,8 @@ package org.ecad.captacao.exception;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -9,12 +11,10 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
-import org.jboss.logging.Logger;
-
 @Provider
 public class ThrowableMapper implements ExceptionMapper<Throwable> {
 
-	protected Logger logger = Logger.getLogger(this.getClass());
+	protected Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	@Override
 	public Response toResponse(Throwable t) {
@@ -22,7 +22,7 @@ public class ThrowableMapper implements ExceptionMapper<Throwable> {
 		
 		response.put("error", "Erro não esperado.");
 		
-		logger.error(t.getMessage(), t);
+		logger.log(Level.SEVERE, t.getMessage(), t);
 		
 		return Response.status(Status.INTERNAL_SERVER_ERROR).entity(response).type(MediaType.APPLICATION_JSON).build();
 	}

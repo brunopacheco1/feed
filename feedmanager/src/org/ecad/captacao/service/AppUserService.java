@@ -3,6 +3,7 @@ package org.ecad.captacao.service;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -112,7 +113,7 @@ public class AppUserService extends AbstractService {
 		try {
 			md = MessageDigest.getInstance("MD5");
 		} catch (NoSuchAlgorithmException e) {
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 		
 		if(md == null || password == null) {

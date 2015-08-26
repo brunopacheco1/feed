@@ -1,16 +1,18 @@
 package org.ecad.captacao.job;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.ecad.captacao.exception.GenericException;
 import org.ecad.captacao.locator.ServiceLocator;
 import org.ecad.captacao.service.AppTokenService;
-import org.jboss.logging.Logger;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 public class AppTokenChecker implements Job {
 	
-	protected Logger logger = Logger.getLogger(this.getClass());
+	protected Logger logger = Logger.getLogger(this.getClass().getName());
 
 	private AppTokenService tokenService = ServiceLocator.getInstance().lookup(AppTokenService.class);
 	
@@ -23,7 +25,7 @@ public class AppTokenChecker implements Job {
 		try {
 			tokenService.validateTokens();
 		} catch (GenericException e) {
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 }

@@ -1,6 +1,7 @@
 package org.ecad.captacao.service;
 
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -51,7 +52,7 @@ public class NormalizedDocumentsToPersistQueueService extends AbstractService {
             Destination destination = (Destination) ctx.lookup(normalizedDocumentQueue);
             producer = session.createProducer(destination);
         } catch (JMSException | NamingException e) {
-        	logger.error(e.getMessage(), e);
+        	logger.log(Level.SEVERE, e.getMessage(), e);
             throw new RuntimeException(e);
         }
     }
@@ -62,7 +63,7 @@ public class NormalizedDocumentsToPersistQueueService extends AbstractService {
             try {
                 connection.close();
             } catch (JMSException e) {
-            	logger.error(e.getMessage(), e);
+            	logger.log(Level.SEVERE, e.getMessage(), e);
             }
         }
     }
@@ -87,7 +88,7 @@ public class NormalizedDocumentsToPersistQueueService extends AbstractService {
             message = session.createObjectMessage(document);
             producer.send(message);
         } catch (JMSException e) {
-            logger.error(e.getMessage(), e);
+            logger.log(Level.SEVERE, e.getMessage(), e);
         }
 	}
 	
@@ -105,7 +106,7 @@ public class NormalizedDocumentsToPersistQueueService extends AbstractService {
 		} catch (NothingToDoException e) {
 			//Ignorar mensagens de nada a ser feito
 		} catch (GenericException e) {
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
     	
     	executionService.finish();

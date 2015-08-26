@@ -3,6 +3,7 @@ package org.ecad.captacao.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
@@ -11,7 +12,6 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 import org.ecad.captacao.dao.RobotDAO;
 import org.ecad.captacao.exception.EntityExistsException;
@@ -130,11 +130,10 @@ public class FeedManagerRobotService extends AbstractService {
 		String responseStr = null;
 		
 		try {
-			Response response = client.target(robot.getRobotUrl() + "/robot/normalizer/run").request().post(Entity.entity(gson.toJson(data), MediaType.APPLICATION_JSON_TYPE));
-			responseStr = response.readEntity(String.class);
+			responseStr = client.target(robot.getRobotUrl() + "/robot/normalizer/run").request().post(Entity.entity(gson.toJson(data), MediaType.APPLICATION_JSON_TYPE), String.class);
 		} catch (Exception e) {
 			responseStr = e.getMessage();
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 		
 		return responseStr;
@@ -161,11 +160,10 @@ public class FeedManagerRobotService extends AbstractService {
 		String responseStr = null;
 		
 		try {
-			Response response = client.target(robot.getRobotUrl() + "/robot/crawler/run").request().post(Entity.entity(gson.toJson(data), MediaType.APPLICATION_JSON_TYPE));
-			responseStr = response.readEntity(String.class);
+			responseStr = client.target(robot.getRobotUrl() + "/robot/crawler/run").request().post(Entity.entity(gson.toJson(data), MediaType.APPLICATION_JSON_TYPE), String.class);
 		} catch (Exception e) {
 			responseStr = e.getMessage();
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 
 		return responseStr;
@@ -186,11 +184,10 @@ public class FeedManagerRobotService extends AbstractService {
 		String responseStr = null;
 		
 		try {
-			Response response = client.target(robot.getRobotUrl() + "/robot/status").request().get();
-			responseStr = response.readEntity(String.class);
+			responseStr = client.target(robot.getRobotUrl() + "/robot/status").request().get(String.class);
 		} catch (Exception e) {
 			responseStr = e.getMessage();
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 		
 		return responseStr;

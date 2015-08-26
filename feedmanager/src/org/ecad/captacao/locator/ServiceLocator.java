@@ -1,19 +1,20 @@
 package org.ecad.captacao.locator;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import org.jboss.logging.Logger;
-
 public class ServiceLocator {
 
-	protected Logger logger = Logger.getLogger(this.getClass());
+	protected Logger logger = Logger.getLogger(this.getClass().getName());
 	
 	private ServiceLocator() {
 		try {
 			context = new InitialContext();
 		} catch (NamingException e) {
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 	}
 	
@@ -38,7 +39,7 @@ public class ServiceLocator {
 		try {
 			return type.cast(context.lookup("java:global/" + appContext + "/" + type.getSimpleName()));
 		} catch (NamingException e) {
-			logger.error(e.getMessage(), e);
+			logger.log(Level.SEVERE, e.getMessage(), e);
 		}
 		
 		return null;
