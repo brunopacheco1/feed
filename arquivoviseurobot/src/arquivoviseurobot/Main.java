@@ -53,8 +53,6 @@ public class Main {
 
 			File file = new File("./arquivos/" + fileName);
 			
-			file.mkdirs();
-			
 			InputStream is = entity.getContent();
 			
 			FileOutputStream fos = new FileOutputStream(file);
