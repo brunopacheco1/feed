@@ -43,11 +43,11 @@
 				<configuration>
 					<container>
 						<containerId>wildfly9x</containerId>
-						<home>/home/casa/desenvolvimento/wildfly-9.0.1.Final</home>
+						<home>/home/casa/dev/wildfly-9.0.1.Final</home>
 					</container>
 					<configuration>
 						<type>existing</type>
-						<home>/home/casa/desenvolvimento/wildfly-9.0.1.Final/standalone</home>
+						<home>/home/casa/dev/wildfly-9.0.1.Final/standalone</home>
 					</configuration>
 				</configuration>
 			</plugin>
